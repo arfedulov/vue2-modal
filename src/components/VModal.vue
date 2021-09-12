@@ -3,6 +3,8 @@
     <div
       v-if="isOpen"
       class="v-modal"
+      role="dialog"
+      aria-modal="true"
       @modal-submit="onSubmit"
       @modal-cancel="onCancel"
     >
@@ -17,6 +19,10 @@
 // TODO: add examples in storybook
 // TODO: add tests
 // TODO: add documentation
+
+const getPrimaryElement = () =>
+  document.querySelector("[data-modal-submit-button]") ||
+  document.querySelector("[data-modal-cancel-button]");
 
 export default {
   name: "VModal",
@@ -34,6 +40,7 @@ export default {
     return {
       isOpen: false,
       resolveAnswer: null,
+      lastFocus: null,
     };
   },
   methods: {
@@ -50,9 +57,22 @@ export default {
       this.close();
       this.resolveAnswer(true);
     },
+    takeFocus() {
+      this.lastFocus = document.activeElement;
+      const primaryElement = getPrimaryElement();
+
+      if (primaryElement) {
+        primaryElement.focus();
+      }
+    },
+    releaseFocus() {
+      this.lastFocus.focus();
+      this.lastFocus = null;
+    },
     async open() {
       this.isOpen = true;
       this.disableDocumentScroll();
+      this.takeFocus();
 
       return new Promise((resolve) => {
         this.resolveAnswer = resolve;
@@ -61,6 +81,7 @@ export default {
     close() {
       this.enableDocumentScroll();
       this.isOpen = false;
+      this.releaseFocus();
     },
     disableDocumentScroll() {
       document.body.classList.add("v-modal-noscroll");

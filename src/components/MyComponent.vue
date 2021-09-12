@@ -8,8 +8,8 @@
       <div class="my-modal">
         hello
 
-        <button v-modal-submit>ok</button>
         <button v-modal-cancel>cancel</button>
+        <button v-modal-submit>ok</button>
       </div>
     </v-modal>
 
@@ -17,8 +17,8 @@
       <div class="my-modal">
         hello 2
 
-        <button v-modal-submit>ok</button>
         <button v-modal-cancel>cancel</button>
+        <button v-modal-submit>ok</button>
       </div>
     </v-modal>
   </section>
