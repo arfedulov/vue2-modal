@@ -43,23 +43,40 @@ export default {
       }
     },
     onCancel() {
-      this.isOpen = false;
+      this.close();
       this.resolveAnswer(false);
     },
     onSubmit() {
-      this.isOpen = false;
+      this.close();
       this.resolveAnswer(true);
     },
     async open() {
       this.isOpen = true;
+      this.disableDocumentScroll();
 
       return new Promise((resolve) => {
         this.resolveAnswer = resolve;
       });
     },
+    close() {
+      this.enableDocumentScroll();
+      this.isOpen = false;
+    },
+    disableDocumentScroll() {
+      document.body.classList.add("v-modal-noscroll");
+    },
+    enableDocumentScroll() {
+      document.body.classList.remove("v-modal-noscroll");
+    },
   },
 };
 </script>
+
+<style>
+.v-modal-noscroll {
+  overflow: hidden;
+}
+</style>
 
 <style scoped>
 .v-modal {
