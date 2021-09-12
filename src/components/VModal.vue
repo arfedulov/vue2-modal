@@ -5,6 +5,7 @@
       class="v-modal"
       role="dialog"
       aria-modal="true"
+      :style="modalStyles"
       @modal-submit="onSubmit"
       @modal-cancel="onCancel"
     >
@@ -15,11 +16,6 @@
 </template>
 
 <script>
-// TODO: prepare package
-// TODO: add examples in storybook
-// TODO: add tests
-// TODO: add documentation
-
 const getPrimaryElement = () =>
   document.querySelector("[data-modal-submit-button]") ||
   document.querySelector("[data-modal-cancel-button]");
@@ -41,7 +37,20 @@ export default {
       isOpen: false,
       resolveAnswer: null,
       lastFocus: null,
+      vh100: null,
     };
+  },
+  computed: {
+    modalStyles() {
+      return { "--vh100": this.vh100 };
+    },
+  },
+  created() {
+    this.recalculateVH();
+    this.setResizeListener();
+  },
+  beforeDestroy() {
+    this.removeResizeListener();
   },
   methods: {
     onBackdropClick() {
@@ -89,6 +98,15 @@ export default {
     enableDocumentScroll() {
       document.body.classList.remove("v-modal-noscroll");
     },
+    recalculateVH() {
+      this.vh100 = `${window.innerHeight}px`;
+    },
+    setResizeListener() {
+      window.addEventListener("resize", this.recalculateVH);
+    },
+    removeResizeListener() {
+      window.removeEventListener("resize", this.recalculateVH);
+    },
   },
 };
 </script>
@@ -106,7 +124,7 @@ export default {
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100vh; /* TODO: handle mobile  case */
+  height: var(--vh100);
 }
 
 .v-modal,
