@@ -1,3 +1,5 @@
+import PortalVue from "portal-vue";
+
 const createEvent = (name) => new CustomEvent(name, { bubbles: true });
 
 const submitCallback = (e) => {
@@ -27,5 +29,7 @@ export const vue2ModalPlugin = {
         el.removeEventListener("click", cancelCallback);
       },
     });
+
+    Vue.use(PortalVue);
   },
 };

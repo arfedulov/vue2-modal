@@ -1,19 +1,30 @@
 <template>
-  <div
-    v-if="isOpen"
-    class="v-modal"
-    @modal-submit="onSubmit"
-    @modal-cancel="onCancel"
-  >
-    <div class="v-modal__backdrop" @click="onBackdropClick"></div>
-    <slot></slot>
-  </div>
+  <portal :to="name">
+    <div
+      v-if="isOpen"
+      class="v-modal"
+      @modal-submit="onSubmit"
+      @modal-cancel="onCancel"
+    >
+      <div class="v-modal__backdrop" @click="onBackdropClick"></div>
+      <slot></slot>
+    </div>
+  </portal>
 </template>
 
 <script>
+// TODO: prepare package
+// TODO: add examples in storybook
+// TODO: add tests
+// TODO: add documentation
+
 export default {
   name: "VModal",
   props: {
+    name: {
+      type: String,
+      required: true,
+    },
     closeOnBackdropClick: {
       type: Boolean,
       default: false,
@@ -53,6 +64,7 @@ export default {
 <style scoped>
 .v-modal {
   position: fixed;
+  z-index: 2147483647;
   left: 0;
   top: 0;
   width: 100vw;

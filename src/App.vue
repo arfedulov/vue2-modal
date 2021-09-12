@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="app">
+    <header class="header"></header>
+    <my-component />
+
     <p class="text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec
       ligula finibus, faucibus turpis ac, mollis urna. Donec semper odio non
@@ -51,60 +54,53 @@
       Pellentesque sit amet pellentesque lacus.
     </p>
 
-    <button @click="openMyModal">open</button>
+    <footer class="footer"></footer>
 
-    <v-modal ref="myModal" close-on-backdrop-click>
-      <div class="my-modal">
-        hello
-
-        <button v-modal-submit>ok</button>
-        <button v-modal-cancel>cancel</button>
-      </div>
-    </v-modal>
+    <v-modal-target name="my-modal" class="my-modal-target" />
   </div>
 </template>
 
 <script>
-import VModal from "@/components/VModal.vue";
+import VModalTarget from "@/components/VModalTarget.vue";
+import MyComponent from "@/components/MyComponent.vue";
 
 export default {
   name: "App",
   components: {
-    VModal,
-  },
-  methods: {
-    log(msg) {
-      console.log(msg);
-    },
-    async openMyModal() {
-      const result = await this.$refs.myModal.open();
-
-      this.log(result);
-    },
+    VModalTarget,
+    MyComponent,
   },
 };
 </script>
 
 <style>
+.app {
+  position: relative;
+  padding: 100px 0 200px 0;
+}
+
 .text {
   font-size: 32px;
   line-height: 1.4em;
 }
 
-.my-modal {
-  width: 600px;
-  max-width: 100%;
-  font-size: 60px;
-
-  background-color: white;
-
+.header {
   position: absolute;
-  top: 33%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: lightcoral;
+  z-index: 1000;
 }
 
-.my-modal button {
-  font-size: inherit;
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: lightgreen;
+  z-index: 1000;
 }
 </style>

@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "i": "^0.3.6",
+    "npm": "^7.23.0",
+    "portal-vue": "^2.1.7",
     "vue": "^2.6.11"
   },
   "devDependencies": {
