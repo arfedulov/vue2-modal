@@ -1,7 +1,18 @@
 {
-  "name": "vue2-modal",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@arfedulov/vue2-modal",
+  "version": "0.1.1",
+  "description": "No-style vue component for creating modal windows.",
+  "keywords": [
+    "vue",
+    "vue2",
+    "modal",
+    "dialog"
+  ],
+  "main": "index.js",
+  "author": {
+    "name": "Artem Fedulov",
+    "email": "arfedulov@gmail.com"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,8 +21,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "i": "^0.3.6",
-    "npm": "^7.23.0",
     "portal-vue": "^2.1.7",
     "vue": "^2.6.11"
   },
@@ -28,5 +37,6 @@
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.2.1",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "license": "MIT"
 }

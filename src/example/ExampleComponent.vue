@@ -28,7 +28,7 @@
 import VModal from "@/components/VModal.vue";
 
 export default {
-  name: "MyComponent",
+  name: "ExampleComponent",
   components: { VModal },
   methods: {
     async openMyModal() {

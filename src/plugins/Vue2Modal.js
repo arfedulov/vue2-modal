@@ -14,7 +14,7 @@ const addBooleanDataAttribute = (element, attributeName) => {
   element.dataset[attributeName] = "";
 };
 
-export const vue2ModalPlugin = {
+export const Vue2Modal = {
   install: (Vue) => {
     Vue.directive("modal-submit", {
       bind(el) {

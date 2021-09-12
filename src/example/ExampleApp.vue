@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <header class="header"></header>
-    <my-component />
+    <example-component />
 
     <p class="text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec
@@ -62,13 +62,13 @@
 
 <script>
 import VModalTarget from "@/components/VModalTarget.vue";
-import MyComponent from "@/components/MyComponent.vue";
+import ExampleComponent from "@/example/ExampleComponent.vue";
 
 export default {
-  name: "App",
+  name: "ExampleApp",
   components: {
     VModalTarget,
-    MyComponent,
+    ExampleComponent,
   },
 };
 </script>

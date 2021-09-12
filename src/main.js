@@ -1,11 +1,11 @@
 import Vue from "vue";
-import App from "./App.vue";
+import ExampleApp from "./example/ExampleApp.vue";
 
-import { vue2ModalPlugin } from "./plugins/vue2ModalPlugin";
+import { Vue2Modal } from "./plugins/Vue2Modal";
 
 Vue.config.productionTip = false;
-Vue.use(vue2ModalPlugin);
+Vue.use(Vue2Modal);
 
 new Vue({
-  render: (h) => h(App),
+  render: (h) => h(ExampleApp),
 }).$mount("#app");

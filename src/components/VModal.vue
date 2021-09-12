@@ -122,7 +122,5 @@ export default {
   height: 100%;
   background: var(--v-modal-backdrop-background, grey);
   opacity: var(--v-modal-backdrop-opacity, 0.3);
-
-  border: 30px solid black;
 }
 </style>
