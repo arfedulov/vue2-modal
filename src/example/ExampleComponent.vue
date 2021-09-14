@@ -4,7 +4,7 @@
     <button @click="openMyModal">open</button>
     <button @click="openMyModal2">open2</button>
 
-    <v-modal ref="myModal" name="my-modal" close-on-backdrop-click>
+    <v-modal ref="myModal" target="my-modal" close-on-backdrop-click>
       <div class="my-modal">
         hello
 
@@ -13,7 +13,7 @@
       </div>
     </v-modal>
 
-    <v-modal ref="myModal2" name="my-modal" close-on-backdrop-click>
+    <v-modal ref="myModal2" target="my-modal" close-on-backdrop-click>
       <div class="my-modal">
         hello 2
 

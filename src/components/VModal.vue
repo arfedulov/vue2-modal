@@ -1,5 +1,5 @@
 <template>
-  <portal :to="name">
+  <portal :to="target">
     <div
       v-if="isOpen"
       class="v-modal"
@@ -23,7 +23,7 @@ const getPrimaryElement = () =>
 export default {
   name: "VModal",
   props: {
-    name: {
+    target: {
       type: String,
       required: true,
     },
