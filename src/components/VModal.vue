@@ -113,7 +113,7 @@ export default {
 
 <style>
 .v-modal-noscroll {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 </style>
 
