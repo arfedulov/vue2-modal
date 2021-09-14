@@ -1,6 +1,6 @@
 {
   "name": "@arfedulov/vue2-modal",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "No-style vue component for creating modal windows.",
   "keywords": [
     "vue",
@@ -13,6 +13,11 @@
     "name": "Artem Fedulov",
     "email": "arfedulov@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arfedulov/vue2-modal.git"
+  },
+  "homepage": "https://github.com/arfedulov/vue2-modal#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
