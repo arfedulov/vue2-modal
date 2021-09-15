@@ -1,7 +1,5 @@
 # vue2-modal
 
-## why so ugly
-
 This is a vue component for creating your modal windows. It is
 designed to be highly customizable in its appearance so it goes
 almost without any styling. It is a responsibility of a user of this
@@ -17,11 +15,7 @@ the core functionality of modal windows, like the following:
 - allows receiving yes/no response from a user;
 - utilizes ARIA means;
 
-[See example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
-
-## why "vue2"
-
-This package relies on [portal-vue](https://www.npmjs.com/package/portal-vue) library wich brings portals in vue2. vue3 has portals included in core library so we don't need to use any additional dependencies if we want to use portals in vue3.
+[See an example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
 
 ## some examples
 
@@ -89,15 +83,11 @@ export default {
 
 ## API
 
-### css custom properties
-
-- `--v-modal-backdrop-background`
-- `--v-modal-backdrop-opacity`
-
 ### v-modal properties
 
 - `target` - the name of the modal's target
 - `close-on-backdrop-click`
+- `backdrop-styles` - an object of styles which is forwarded to backdrop element
 
 ### direcitves
 

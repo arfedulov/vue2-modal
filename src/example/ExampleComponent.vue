@@ -13,7 +13,12 @@
       </div>
     </v-modal>
 
-    <v-modal ref="myModal2" target="my-modal" close-on-backdrop-click>
+    <v-modal
+      ref="myModal2"
+      target="my-modal"
+      :backdrop-styles="{ background: 'red' }"
+      close-on-backdrop-click
+    >
       <div class="my-modal">
         hello 2
 

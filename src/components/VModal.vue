@@ -9,7 +9,11 @@
       @modal-submit="onSubmit"
       @modal-cancel="onCancel"
     >
-      <div class="v-modal__backdrop" @click="onBackdropClick"></div>
+      <div
+        class="v-modal__backdrop"
+        :style="combinedBackdropStyles"
+        @click="onBackdropClick"
+      ></div>
       <slot></slot>
     </div>
   </portal>
@@ -19,6 +23,11 @@
 const getPrimaryElement = () =>
   document.querySelector("[data-modal-submit-button]") ||
   document.querySelector("[data-modal-cancel-button]");
+
+const DEFAULT_BACKDROP_STYLES = {
+  background: "grey",
+  opacity: "0.3",
+};
 
 export default {
   name: "VModal",
@@ -30,6 +39,10 @@ export default {
     closeOnBackdropClick: {
       type: Boolean,
       default: false,
+    },
+    backdropStyles: {
+      type: Object,
+      default: () => ({}),
     },
   },
   data() {
@@ -43,6 +56,12 @@ export default {
   computed: {
     modalStyles() {
       return { "--vh100": this.vh100 };
+    },
+    combinedBackdropStyles() {
+      return {
+        ...DEFAULT_BACKDROP_STYLES,
+        ...this.backdropStyles,
+      };
     },
   },
   created() {
@@ -138,7 +157,5 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background: var(--v-modal-backdrop-background, grey);
-  opacity: var(--v-modal-backdrop-opacity, 0.3);
 }
 </style>
