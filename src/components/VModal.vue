@@ -1,6 +1,6 @@
 <template>
   <portal v-if="isOpen" :to="target">
-    <transition :name="transitionName">
+    <transition :name="transitionName" @after-enter="afterEnter">
       <div
         class="v-modal"
         role="dialog"
@@ -10,6 +10,7 @@
         @modal-cancel="onCancel"
       >
         <div
+          v-if="isBackdropVisible"
           class="v-modal__backdrop"
           :style="combinedBackdropStyles"
           @click="onBackdropClick"
@@ -53,6 +54,7 @@ export default {
   data() {
     return {
       isOpen: false,
+      isBackdropVisible: false,
       resolveAnswer: null,
       lastFocus: null,
       vh100: null,
@@ -77,17 +79,26 @@ export default {
     this.removeResizeListener();
   },
   methods: {
+    afterEnter() {
+      this.isBackdropVisible = true;
+    },
+    async beforeClose() {
+      // hide backdrop before leave animation starts
+      this.isBackdropVisible = false;
+
+      await this.$nextTick();
+    },
     onBackdropClick() {
       if (this.closeOnBackdropClick) {
         this.onCancel();
       }
     },
-    onCancel() {
-      this.close();
+    async onCancel() {
+      await this.close();
       this.resolveAnswer(false);
     },
-    onSubmit() {
-      this.close();
+    async onSubmit() {
+      await this.close();
       this.resolveAnswer(true);
     },
     takeFocus() {
@@ -111,7 +122,9 @@ export default {
         this.resolveAnswer = resolve;
       });
     },
-    close() {
+    async close() {
+      await this.beforeClose();
+
       this.enableDocumentScroll();
       this.isOpen = false;
       this.releaseFocus();

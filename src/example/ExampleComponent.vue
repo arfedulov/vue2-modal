@@ -33,7 +33,7 @@
       target="my-modal"
       :backdrop-styles="{ background: 'red' }"
       close-on-backdrop-click
-      transition-name="fade"
+      transition-name="slide"
       @open="isAnimatedModalOpen = true"
       @close="isAnimatedModalOpen = false"
     >
@@ -89,12 +89,21 @@ export default {
 <style>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.25s ease-out;
+  transition: opacity 0.5s ease-out;
 }
 
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 1s ease-out;
+}
+.slide-enter,
+.slide-leave-to {
+  transform: translateX(100%);
 }
 </style>
 
@@ -130,12 +139,4 @@ export default {
   transform: translateX(-50%);
   transition: opacity 1s ease-in;
 }
-
-/*.my-animated-modal--closed {*/
-/*  opacity: 0;*/
-/*}*/
-
-/*.my-animated-modal--open {*/
-/*  opacity: 1;*/
-/*}*/
 </style>
