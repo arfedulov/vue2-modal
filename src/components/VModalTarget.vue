@@ -1,5 +1,5 @@
 <template>
-  <portal-target :name="name" />
+  <portal-target :name="name" slim />
 </template>
 
 <script>

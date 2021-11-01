@@ -1,6 +1,6 @@
 {
   "name": "@arfedulov/vue2-modal",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "An easy to style vue component for creating modal windows.",
   "keywords": [
     "vue",

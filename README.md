@@ -88,6 +88,7 @@ export default {
 - `target` - the name of the modal's target
 - `close-on-backdrop-click`
 - `backdrop-styles` - an object of styles which is forwarded to backdrop element
+- `transition-name` - optional name of vue <transition> which is applied to the modal
 
 ### direcitves
 

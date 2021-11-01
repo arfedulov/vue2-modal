@@ -1,21 +1,22 @@
 <template>
-  <portal :to="target">
-    <div
-      v-if="isOpen"
-      class="v-modal"
-      role="dialog"
-      aria-modal="true"
-      :style="modalStyles"
-      @modal-submit="onSubmit"
-      @modal-cancel="onCancel"
-    >
+  <portal v-if="isOpen" :to="target">
+    <transition :name="transitionName">
       <div
-        class="v-modal__backdrop"
-        :style="combinedBackdropStyles"
-        @click="onBackdropClick"
-      ></div>
-      <slot></slot>
-    </div>
+        class="v-modal"
+        role="dialog"
+        aria-modal="true"
+        :style="modalStyles"
+        @modal-submit="onSubmit"
+        @modal-cancel="onCancel"
+      >
+        <div
+          class="v-modal__backdrop"
+          :style="combinedBackdropStyles"
+          @click="onBackdropClick"
+        ></div>
+        <slot></slot>
+      </div>
+    </transition>
   </portal>
 </template>
 
@@ -43,6 +44,10 @@ export default {
     backdropStyles: {
       type: Object,
       default: () => ({}),
+    },
+    transitionName: {
+      type: String,
+      default: "",
     },
   },
   data() {
