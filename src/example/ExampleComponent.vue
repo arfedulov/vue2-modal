@@ -48,11 +48,8 @@
 </template>
 
 <script>
-import VModal from "@/components/VModal.vue";
-
 export default {
   name: "ExampleComponent",
-  components: { VModal },
   data() {
     return {
       isAnimatedModalOpen: false,

@@ -1,4 +1,6 @@
 import PortalVue from "portal-vue";
+import VModalTarget from "../components/VModalTarget";
+import VModal from "../components/VModal";
 
 const createEvent = (name) => new CustomEvent(name, { bubbles: true });
 
@@ -35,6 +37,9 @@ export default {
         el.removeEventListener("click", cancelCallback);
       },
     });
+
+    Vue.component("VModalTarget", VModalTarget);
+    Vue.component("VModal", VModal);
 
     Vue.use(PortalVue);
   },

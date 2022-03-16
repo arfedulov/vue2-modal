@@ -61,13 +61,11 @@
 </template>
 
 <script>
-import VModalTarget from "@/components/VModalTarget.vue";
 import ExampleComponent from "@/example/ExampleComponent.vue";
 
 export default {
   name: "ExampleApp",
   components: {
-    VModalTarget,
     ExampleComponent,
   },
 };
