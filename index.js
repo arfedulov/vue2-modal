@@ -1,3 +1,3 @@
-export { default as Vue2Modal } from "./src/plugins/Vue2Modal";
-export { default as VModal } from "./src/components/VModal.vue";
-export { default as VModalTarget } from "./src/components/VModalTarget.vue";
+import Vue2Modal from "./src/plugins/Vue2Modal";
+
+export default Vue2Modal;
